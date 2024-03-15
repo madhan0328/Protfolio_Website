@@ -1,0 +1,42 @@
+
+.logo-container {
+
+    display:          flex;
+	align-items:      center;
+	justify-content:  center;
+	min-height:       100%;
+	position: relative;
+	
+	&:before {
+		content:  "";
+		position: absolute;
+		top:      calc( 60% - 4px );
+		width:    50%;
+		height:   4px;
+		background-color: rgb(207, 0, 0);
+		transform-origin: center center;
+		transform: scaleX( 0 );
+		
+		animation: line-animation 3s ease infinite alternate;
+	}
+	
+	h1#page-logo {
+		font: bold 3rem 'Poppins', sans-serif;
+		
+		animation: clip-path-reveal-1 3s ease infinite alternate;
+	}
+}
+
+@keyframes line-animation {
+	0% { transform: scaleX( 0 ); }
+	15% { transform: scaleX( 0 ); }
+	20%, 25% { transform: scaleX( 1 ); top: calc( 100% - 2px ); }
+	50% { transform: scaleX( 1 ); top: 0px; }
+	70% { transform: scaleX( 0.2 ); top: 0px; }
+	80%, 100% { transform: scaleX( 0.2 ); top: 0px; }
+}
+
+@keyframes clip-path-reveal-1 {
+	0%, 25% { clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%); }
+	50% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); }
+}
